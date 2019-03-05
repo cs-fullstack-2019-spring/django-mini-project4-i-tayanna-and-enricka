@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import CreateNewUserForm
 
 from django .http import HttpResponse
 
@@ -8,8 +9,14 @@ def index(request):
     return  render(request,"gameApp/index.html")
 
 def login(request):
-    return HttpResponse("this is the login page")
-def createnewuser(request):
+    form=CreateNewUserForm(request.POST or None)
+    context={
+        "form":form
+    }
+    return render(request,'registeration/login.html',context)
+
+
+def logout(request):
     return HttpResponse("new user created")
 
 
