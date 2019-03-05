@@ -6,7 +6,9 @@ from django .http import HttpResponse
 # this function will take you to the home page of the website.
 def index(request):
     return  render(request,"gameApp/index.html")
-def login(re)
+
+def login(request):
+    re
 
 def createNewUser(request):
     return HttpResponse('Creat new user page')
