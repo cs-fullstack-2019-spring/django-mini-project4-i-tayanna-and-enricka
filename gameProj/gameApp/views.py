@@ -8,7 +8,10 @@ def index(request):
     return  render(request,"gameApp/index.html")
 
 def login(request):
-    re
+    return HttpResponse("this is the login page")
+def createnewuser(request):
+    return HttpResponse("new user created")
+
 
 def createNewUser(request):
     return HttpResponse('Creat new user page')
