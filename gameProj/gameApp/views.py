@@ -17,7 +17,7 @@ def login(request):
 
 
 def logout(request):
-    return HttpResponse("new user created")
+    return render(request,'registeration/logout.html')
 
 
 def createNewUser(request):
