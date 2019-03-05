@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .forms import CreateNewUserForm, NewGameForm
 from .models import NewgameModel, CreateNewUserModel
 from .forms import CreateNewUserForm
@@ -12,17 +13,19 @@ from django.contrib.auth.models import User
 def index(request):
     return render(request,"gameApp/index.html")
 
+
 def login(request):
-    form=CreateNewUserForm(request.POST or None)
+    form = CreateNewUserForm(request.POST or None)
     context={
 
         "form":form
     }
     return render(request,'registeration/login.html',context)
 
-
+@login_required
 def logout(request):
     return render(request,'registeration/logout.html')
+
 
 def createNewUser(request):
     form = CreateNewUserForm(request.POST or None)
@@ -37,10 +40,11 @@ def saveUser(request):
         return render(request, 'gameApp/loggedIn.html')
 
 
-
+@login_required
 def loggedIn(request):
     return render(request, 'gameApp/loggedIn.html')
 
+@login_required
 def addGame(request):
     form = NewGameForm(request.POST or None)
     context = {'form': form}
