@@ -42,6 +42,8 @@ def loggedIn(request):
     return render(request, 'gameApp/loggedIn.html')
 
 def addGame(request):
-    return HttpResponse('game form here')
+    form = NewGameForm(request.POST or None)
+    context = {'form': form}
+    return render(request, 'gameApp/addGame.html', context)
 
 
