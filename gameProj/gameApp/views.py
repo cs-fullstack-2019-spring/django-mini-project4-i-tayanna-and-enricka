@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .forms import CreateNewUserForm, NewGameForm
 from .models import NewgameModel, CreateNewUserModel
+from .forms import CreateNewUserForm
+
 from django .http import HttpResponse
 from django.contrib.auth.models import User
 
@@ -10,6 +12,17 @@ from django.contrib.auth.models import User
 def index(request):
     return render(request,"gameApp/index.html")
 
+def login(request):
+    form=CreateNewUserForm(request.POST or None)
+    context={
+
+        "form":form
+    }
+    return render(request,'registeration/login.html',context)
+
+
+def logout(request):
+    return HttpResponse("new user created")
 
 def createNewUser(request):
     form = CreateNewUserForm(request.POST or None)
