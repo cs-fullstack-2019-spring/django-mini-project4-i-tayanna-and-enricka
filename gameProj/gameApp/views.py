@@ -34,7 +34,8 @@ def createNewUser(request):
 
 def saveUser(request):
     form = CreateNewUserForm(request.POST or None)
-    if request.method == "POST":
+    if request.method == "
+POST":
         User.objects.create_user(request.POST['username'])
         form.save()
         return render(request, 'gameApp/loggedIn.html')
