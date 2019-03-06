@@ -5,7 +5,7 @@
     <title>Add Game</title>
 </head>
 <body>
-<form action="{% url 'loggedIn' %}" method="post">
+<form action="{% url 'addGame' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button>Submit</button>

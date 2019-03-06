@@ -13,8 +13,8 @@ class NewgameModel(models.Model):
 
 class CreateNewUserModel(models.Model):
     username = models.CharField(max_length=200)
-    password1 = models.CharField(max_length=200)
-    password2 = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+    confirmPassword = models.CharField(max_length=200)
     dateAccountCreated = models.DateField(default=None)
-    rank = models.IntegerField(max_length=2, default=0)
+    rank = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)

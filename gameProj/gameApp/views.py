@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import CreateNewUserForm, NewGameForm
 from .models import NewgameModel, CreateNewUserModel
@@ -38,13 +38,22 @@ def saveUser(request):
         form.save()
         return render(request, 'gameApp/loggedIn.html')
 
-@login_required()
+# @login_required
 def loggedIn(request):
-    return render(request, 'gameApp/loggedIn.html')
+    allGames = NewgameModel.objects.all()
+    context = {'allGames': allGames}
+    return render(request, 'gameApp/loggedIn.html', context)
 
 def addGame(request):
     form = NewGameForm(request.POST or None)
+    print('gameadded')
     context = {'form': form}
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return redirect('loggedIn')
+    else:
+        print(form)
+
     return render(request, 'gameApp/addGame.html', context)
 
 

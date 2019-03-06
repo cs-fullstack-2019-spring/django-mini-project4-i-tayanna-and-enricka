@@ -12,7 +12,18 @@
 <br>
 <a href="{% url 'logout'%}">Log Out</a>
 
+{% for game in allGames %}
+<p>
+    <p>Name: {{ game.name }}</p>
+    <br>
+    <p>Developer: {{ game.developer }}</p>
+    <br>
+    <p>Release Date: {{ game.dateMade }}</p>
+    <br>
+    <p>Age Limit: {{ game.ageLimit }}</p>
+</p>
 
+{% endfor %}
 
 </body>
 </html>
