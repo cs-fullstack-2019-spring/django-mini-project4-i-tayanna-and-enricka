@@ -20,11 +20,10 @@ def login(request):
 
         "form":form
     }
-    return render(request,'registeration/login.html',context)
+    return render(request,'registration/login.html',context)
 
-@login_required
 def logout(request):
-    return render(request,'registeration/logout.html')
+    return render(request,'registration/logout.html')
 
 
 def createNewUser(request):
@@ -40,12 +39,10 @@ POST":
         form.save()
         return render(request, 'gameApp/loggedIn.html')
 
-
-@login_required
+@login_required()
 def loggedIn(request):
     return render(request, 'gameApp/loggedIn.html')
 
-@login_required
 def addGame(request):
     form = NewGameForm(request.POST or None)
     context = {'form': form}
