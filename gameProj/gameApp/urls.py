@@ -10,6 +10,5 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
     path('loggedIn/addGame/', views.addGame, name='addGame'),
-    path('saved/', views.saveUser, name='welcome'),
     path('addGame/', views.addGame, name='addGame')
    ]

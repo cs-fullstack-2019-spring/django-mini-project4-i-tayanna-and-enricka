@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import CreateNewUserForm, NewGameForm
 from .models import NewgameModel, CreateNewUserModel
 from .forms import CreateNewUserForm
-
 from django .http import HttpResponse
 from django.contrib.auth.models import User
 
@@ -29,14 +28,15 @@ def logout(request):
 def createNewUser(request):
     form = CreateNewUserForm(request.POST or None)
     context = {"form": form}
-    return render(request, 'gameApp/createUser.html', context)
 
-def saveUser(request):
-    form = CreateNewUserForm(request.POST or None)
+
     if request.method == "POST":
         User.objects.create_user(request.POST['username'])
         form.save()
         return render(request, 'gameApp/loggedIn.html')
+
+    return render(request, 'gameApp/createUser.html', context)
+
 
 # @login_required
 def loggedIn(request):
@@ -55,5 +55,6 @@ def addGame(request):
         print(form)
 
     return render(request, 'gameApp/addGame.html', context)
+
 
 
