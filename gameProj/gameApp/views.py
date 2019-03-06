@@ -20,10 +20,10 @@ def login(request):
 
         "form":form
     }
-    return render(request,'registeration/login.html',context)
+    return render(request,'registration/login.html',context)
 
 def logout(request):
-    return render(request,'registeration/logout.html')
+    return render(request,'registration/logout.html')
 
 
 def createNewUser(request):
