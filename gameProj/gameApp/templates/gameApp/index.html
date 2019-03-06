@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="index.css">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'gameApp/index.css' %}">
 </head>
 <body>
 
 <h1>Welcome to the Game Collector App</h1>
-<br>
 
-<h2>click <a href="{% url 'login'%}  ">here</a> to login</h2>
-<br>
 
-<h2>click <a href="{% url 'newUser' %}">here</a> for new user</h2>
+<h2>click <a href="{% url 'login'%}  ">here</a> to login click! <a href="{% url 'newUser' %}">here</a> for new user!</h2>
+
+<img src="{% static 'gameApp/images/imageedit_1_2259520396.gif'   %} " width="950" height="600">
 
 </body>
 </html>
