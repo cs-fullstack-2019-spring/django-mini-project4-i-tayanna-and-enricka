@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Create New User</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'gameApp/createUser.css' %}">
 </head>
 <body>
 <form action="{% url 'loggedIn' %}" method="post">

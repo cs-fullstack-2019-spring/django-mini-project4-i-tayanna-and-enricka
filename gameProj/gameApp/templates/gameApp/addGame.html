@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Game</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'gameApp/addGame.css' %}">
 </head>
 <body>
 <form action="{% url 'addGame' %}" method="post">
