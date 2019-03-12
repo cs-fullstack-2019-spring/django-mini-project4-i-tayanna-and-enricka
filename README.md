@@ -60,3 +60,5 @@ A user's rank is "grunt" by default. Their rank should change based off of the i
 MDN article: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication
 
 Djanog Many to One article for foreign keys: https://docs.djangoproject.com/en/2.1/topics/db/examples/many_to_one/
+<hr>
+5 points. There is no validation on password 1&2, the age, or the date created for a user. Regardless of being logged in or logged out, it shows all games. It shouldn't be showing all games, only games for the user's account. Edit and delete for games are not available.
